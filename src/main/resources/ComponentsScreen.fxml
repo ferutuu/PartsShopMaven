@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.ferutuu.partsshop.ComponentsController">
+    <TableView fx:id="componentsTable">
+        <columns>
+            <TableColumn text="ID" fx:id="idColumn"/>
+            <TableColumn text="Name" fx:id="nameColumn"/>
+            <TableColumn text="Type" fx:id="typeColumn"/>
+            <TableColumn text="Price" fx:id="priceColumn"/>
+        </columns>
+    </TableView>
+</VBox>
