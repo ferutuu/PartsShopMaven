@@ -10,6 +10,15 @@ public class CPU implements Component {
     private int cores;
     private BigDecimal clockSpeed;
 
+    public CPU(int id, String name, String type, BigDecimal price, int cores, BigDecimal clockSpeed) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.price = price;
+        this.cores = cores;
+        this.clockSpeed = clockSpeed;
+    }
+
     @Override
     public int getId() { return id; }
     @Override

@@ -7,10 +7,20 @@ public class RAM implements Component {
     private String name;
     private String type;
     private BigDecimal price;
-    private int size;
+    private int capacity;
     private int speed;
+    private String generation;
 
-    // Getters and setters for all fields
+    public RAM(int id, String name, String type, BigDecimal price, int capacity, int speed, String generation) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.price = price;
+        this.capacity = capacity;
+        this.speed = speed;
+        this.generation = generation;
+    }
+
     @Override
     public int getId() { return id; }
     @Override
@@ -27,8 +37,10 @@ public class RAM implements Component {
     public BigDecimal getPrice() { return price; }
     @Override
     public void setPrice(BigDecimal price) { this.price = price; }
-    public int getSize() { return size; }
-    public void setSize(int size) { this.size = size; }
+    public int getCapacity() { return capacity; }
+    public void setCapacity(int capacity) { this.capacity = capacity; }
     public int getSpeed() { return speed; }
     public void setSpeed(int speed) { this.speed = speed; }
+    public String getGeneration() { return generation; }
+    public void setGeneration(String generation) { this.generation = generation; }
 }

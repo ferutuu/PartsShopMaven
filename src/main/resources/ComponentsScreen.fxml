@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
+<?import java.lang.String?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.ferutuu.partsshop.ComponentsController">
+    <ComboBox fx:id="componentTypeComboBox" onAction="#handleComponentTypeChange">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="CPU"/>
+                <String fx:value="GPU"/>
+                <String fx:value="RAM"/>
+                <String fx:value="MB"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
     <TableView fx:id="componentsTable">
         <columns>
             <TableColumn text="ID" fx:id="idColumn"/>

@@ -10,7 +10,15 @@ public class MB implements Component {
     private String formFactor;
     private String socketType;
 
-    // Getters and setters for all fields
+    public MB(int id, String name, String type, BigDecimal price, String formFactor, String socketType) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.price = price;
+        this.formFactor = formFactor;
+        this.socketType = socketType;
+    }
+
     @Override
     public int getId() { return id; }
     @Override

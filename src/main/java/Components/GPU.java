@@ -7,10 +7,18 @@ public class GPU implements Component {
     private String name;
     private String type;
     private BigDecimal price;
-    private int memorySize;
+    private int vram;
     private BigDecimal clockSpeed;
 
-    // Getters and setters for all fields
+    public GPU(int id, String name, String type, BigDecimal price, int vram, BigDecimal clockSpeed) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.price = price;
+        this.vram = vram;
+        this.clockSpeed = clockSpeed;
+    }
+
     @Override
     public int getId() { return id; }
     @Override
@@ -27,8 +35,8 @@ public class GPU implements Component {
     public BigDecimal getPrice() { return price; }
     @Override
     public void setPrice(BigDecimal price) { this.price = price; }
-    public int getMemorySize() { return memorySize; }
-    public void setMemorySize(int memorySize) { this.memorySize = memorySize; }
+    public int getVram() { return vram; }
+    public void setVram(int vram) { this.vram = vram; }
     public BigDecimal getClockSpeed() { return clockSpeed; }
     public void setClockSpeed(BigDecimal clockSpeed) { this.clockSpeed = clockSpeed; }
 }
