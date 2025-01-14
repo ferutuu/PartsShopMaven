@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
-<?import java.lang.String?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.ferutuu.partsshop.ComponentsController">
+<VBox prefHeight="800.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.ferutuu.partsshop.ComponentsController">
     <ComboBox fx:id="componentTypeComboBox" onAction="#handleComponentTypeChange">
         <items>
             <FXCollections fx:factory="observableArrayList">
-                <String fx:value="CPU"/>
-                <String fx:value="GPU"/>
-                <String fx:value="RAM"/>
-                <String fx:value="MB"/>
+                <String fx:value="CPU" />
+                <String fx:value="GPU" />
+                <String fx:value="RAM" />
+                <String fx:value="MB" />
             </FXCollections>
         </items>
     </ComboBox>
     <TableView fx:id="componentsTable">
         <columns>
-            <TableColumn text="ID" fx:id="idColumn"/>
-            <TableColumn text="Name" fx:id="nameColumn"/>
-            <TableColumn text="Type" fx:id="typeColumn"/>
-            <TableColumn text="Price" fx:id="priceColumn"/>
+            <TableColumn fx:id="idColumn" text="ID" />
+            <TableColumn fx:id="nameColumn" text="Name" />
+            <TableColumn fx:id="typeColumn" text="Type" />
+            <TableColumn fx:id="priceColumn" text="Price" />
         </columns>
     </TableView>
 </VBox>
