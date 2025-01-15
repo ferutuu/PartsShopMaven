@@ -11,11 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.math.BigDecimal;
@@ -28,10 +25,11 @@ public class ComponentsController {
     @FXML
     private ComboBox<String> componentTypeComboBox;
     @FXML
-    private TableView<Component> componentsTable;
+    private ComboBox<String> componentNameComboBox;
     @FXML
-    private Button addToCartButton;
+    private Label componentDetails;
 
+    private ObservableList<Component> components = FXCollections.observableArrayList();
     private CartController cartController = CartController.getInstance();
 
     @FXML
@@ -44,71 +42,13 @@ public class ComponentsController {
     @FXML
     private void handleComponentTypeChange() {
         String selectedType = componentTypeComboBox.getValue();
-        updateTableColumns(selectedType);
-        loadComponentsFromDatabase(selectedType);
+        loadComponentNamesFromDatabase(selectedType);
+        componentDetails.setText(""); // Clear the component details
     }
 
-    private void updateTableColumns(String type) {
-        componentsTable.getColumns().clear();
-
-        TableColumn<Component, Integer> idColumn = new TableColumn<>("ID");
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        componentsTable.getColumns().add(idColumn);
-
-        TableColumn<Component, String> nameColumn = new TableColumn<>("Name");
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        componentsTable.getColumns().add(nameColumn);
-
-        TableColumn<Component, BigDecimal> priceColumn = new TableColumn<>("Price");
-        priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
-        componentsTable.getColumns().add(priceColumn);
-
-        switch (type) {
-            case "CPU":
-                TableColumn<Component, Integer> coresColumn = new TableColumn<>("Cores");
-                coresColumn.setCellValueFactory(new PropertyValueFactory<>("cores"));
-                componentsTable.getColumns().add(coresColumn);
-
-                TableColumn<Component, BigDecimal> clockSpeedColumn = new TableColumn<>("Clock Speed");
-                clockSpeedColumn.setCellValueFactory(new PropertyValueFactory<>("clockSpeed"));
-                componentsTable.getColumns().add(clockSpeedColumn);
-                break;
-            case "GPU":
-                TableColumn<Component, Integer> vramColumn = new TableColumn<>("VRAM");
-                vramColumn.setCellValueFactory(new PropertyValueFactory<>("vram"));
-                componentsTable.getColumns().add(vramColumn);
-
-                TableColumn<Component, BigDecimal> gpuClockSpeedColumn = new TableColumn<>("Clock Speed");
-                gpuClockSpeedColumn.setCellValueFactory(new PropertyValueFactory<>("clockSpeed"));
-                componentsTable.getColumns().add(gpuClockSpeedColumn);
-                break;
-            case "RAM":
-                TableColumn<Component, Integer> capacityColumn = new TableColumn<>("Capacity");
-                capacityColumn.setCellValueFactory(new PropertyValueFactory<>("capacity"));
-                componentsTable.getColumns().add(capacityColumn);
-
-                TableColumn<Component, Integer> speedColumn = new TableColumn<>("Speed");
-                speedColumn.setCellValueFactory(new PropertyValueFactory<>("speed"));
-                componentsTable.getColumns().add(speedColumn);
-
-                TableColumn<Component, String> generationColumn = new TableColumn<>("Generation");
-                generationColumn.setCellValueFactory(new PropertyValueFactory<>("generation"));
-                componentsTable.getColumns().add(generationColumn);
-                break;
-            case "MB":
-                TableColumn<Component, String> formFactorColumn = new TableColumn<>("Form Factor");
-                formFactorColumn.setCellValueFactory(new PropertyValueFactory<>("formFactor"));
-                componentsTable.getColumns().add(formFactorColumn);
-
-                TableColumn<Component, String> socketTypeColumn = new TableColumn<>("Socket Type");
-                socketTypeColumn.setCellValueFactory(new PropertyValueFactory<>("socketType"));
-                componentsTable.getColumns().add(socketTypeColumn);
-                break;
-        }
-    }
-
-    private void loadComponentsFromDatabase(String type) {
-        ObservableList<Component> components = FXCollections.observableArrayList();
+    private void loadComponentNamesFromDatabase(String type) {
+        components.clear();
+        componentNameComboBox.getItems().clear();
         String query = "";
 
         switch (type) {
@@ -130,14 +70,10 @@ public class ComponentsController {
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
-            System.out.println("Query executed: " + query);
-
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
                 BigDecimal price = resultSet.getBigDecimal("price");
-
-                System.out.println("Component found: ID=" + id + ", Name=" + name + ", Price=" + price);
 
                 switch (type) {
                     case "CPU":
@@ -153,21 +89,66 @@ public class ComponentsController {
                         components.add(new MB(id, name, type, price, resultSet.getString("form_factor"), resultSet.getString("socket_type")));
                         break;
                 }
+
+                componentNameComboBox.getItems().add(name);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
-        System.out.println("Components loaded: " + components.size());
-        componentsTable.setItems(components);
+    @FXML
+    private void handleComponentNameChange() {
+        String selectedName = componentNameComboBox.getValue();
+        if (selectedName != null) {
+            for (Component component : components) {
+                if (component.getName().equals(selectedName)) {
+                    displayComponentDetails(component);
+                    break;
+                }
+            }
+        }
+    }
+
+    private void displayComponentDetails(Component component) {
+        StringBuilder details = new StringBuilder();
+        details.append("Name: ").append(component.getName()).append("\n");
+
+        if (component instanceof CPU) {
+            CPU cpu = (CPU) component;
+            details.append("Cores: ").append(cpu.getCores()).append("\n");
+            details.append("Clock Speed: ").append(cpu.getClockSpeed()).append(" GHz\n");
+        } else if (component instanceof GPU) {
+            GPU gpu = (GPU) component;
+            details.append("VRAM: ").append(gpu.getVram()).append(" GB\n");
+            details.append("Clock Speed: ").append(gpu.getClockSpeed()).append(" GHz\n");
+        } else if (component instanceof RAM) {
+            RAM ram = (RAM) component;
+            details.append("Capacity: ").append(ram.getCapacity()).append(" GB\n");
+            details.append("Speed: ").append(ram.getSpeed()).append(" MHz\n");
+            details.append("Generation: ").append(ram.getGeneration()).append("\n");
+        } else if (component instanceof MB) {
+            MB mb = (MB) component;
+            details.append("Form Factor: ").append(mb.getFormFactor()).append("\n");
+            details.append("Socket Type: ").append(mb.getSocketType()).append("\n");
+        }
+
+        details.append("Price: $").append(component.getPrice()).append("\n");
+
+        componentDetails.setText(details.toString());
     }
 
     @FXML
     private void handleAddToCart() {
-        Component selectedComponent = componentsTable.getSelectionModel().getSelectedItem();
-        if (selectedComponent != null) {
-            cartController.addToCart(selectedComponent);
-            System.out.println("Added to cart: " + selectedComponent.getName());
+        String selectedName = componentNameComboBox.getValue();
+        if (selectedName != null) {
+            for (Component component : components) {
+                if (component.getName().equals(selectedName)) {
+                    cartController.addToCart(component);
+                    System.out.println("Added to cart: " + component.getName());
+                    break;
+                }
+            }
         }
     }
 

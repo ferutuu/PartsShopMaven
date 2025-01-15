@@ -1,0 +1,13 @@
+User: ferut
+Items:
+ID: 1, Name: Core i5 12600K, Type: CPU, Price: $290.0
+ID: 31, Name: Ripjaws V, Type: RAM, Price: $170.0
+ID: 39, Name: B450M Pro4, Type: MB, Price: $80.0
+Total Price: $540.0
+-----
+User: ferut
+Items:
+ID: 17, Name: GTX 1070, Type: GPU, Price: $180.0
+ID: 7, Name: Core i9 14900KS, Type: CPU, Price: $710.0
+Total Price: $890.0
+-----
