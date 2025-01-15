@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.GridPane?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ferutuu.partsshop.RegisterController">
-    <fx:include source="BaseTemplate.fxml"/>
     <center>
         <GridPane alignment="CENTER" prefWidth="400.0" prefHeight="400.0">
             <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>

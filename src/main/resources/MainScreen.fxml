@@ -6,7 +6,6 @@
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ferutuu.partsshop.MainController">
     <center>
         <StackPane fx:id="mainPane">
-            <fx:include source="BaseTemplate.fxml"/>
         </StackPane>
     </center>
 </BorderPane>

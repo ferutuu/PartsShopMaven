@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.ferutuu.partsshop.CartController">
-    <fx:include source="BaseTemplate.fxml"/>
     <center>
         <VBox alignment="CENTER" spacing="10.0" prefWidth="400.0" prefHeight="400.0">
             <TableView fx:id="cartTable">

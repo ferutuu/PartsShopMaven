@@ -11,7 +11,6 @@
 <?import java.lang.String?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ferutuu.partsshop.ComponentsController">
-    <fx:include source="BaseTemplate.fxml"/>
     <center>
         <VBox alignment="CENTER" spacing="10.0" prefWidth="400.0" prefHeight="400.0">
             <ComboBox fx:id="componentTypeComboBox" onAction="#handleComponentTypeChange">
