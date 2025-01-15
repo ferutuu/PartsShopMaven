@@ -4,9 +4,13 @@ import Components.Component;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.math.BigDecimal;
 
@@ -55,7 +59,21 @@ public class CartController {
 
     @FXML
     private void handleCheckout() {
-        // Implement checkout logic here
-        System.out.println("Checkout clicked!");
+        BigDecimal totalPrice = cartItems.stream()
+                .map(Component::getPrice)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/CheckoutScreen.fxml"));
+            Parent root = loader.load();
+            CheckoutController checkoutController = loader.getController();
+            checkoutController.setCartItems(cartItems);
+            checkoutController.setTotalPrice(totalPrice);
+            Stage stage = (Stage) cartTable.getScene().getWindow();
+            stage.setScene(new Scene(root, 800, 800));
+            stage.setTitle("Checkout");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

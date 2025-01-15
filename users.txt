@@ -1,1 +1,2 @@
-admin:password
+ferut,ferut
+farmageheon,gras

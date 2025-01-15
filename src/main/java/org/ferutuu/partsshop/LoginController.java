@@ -21,6 +21,7 @@ public class LoginController {
 
     private static final String USERS_FILE = "users.txt";
     private static Map<String, String> users = new HashMap<>();
+    private static String currentUser;
 
     public LoginController() {
         loadUsers();
@@ -32,6 +33,7 @@ public class LoginController {
         String password = passwordField.getText();
 
         if (users.containsKey(username) && users.get(username).equals(password)) {
+            currentUser = username; // Set the current logged-in user
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("/ComponentsScreen.fxml"));
                 Stage stage = (Stage) usernameField.getScene().getWindow();
@@ -57,16 +59,15 @@ public class LoginController {
         }
     }
 
-    public static void registerUser(String username, String password) {
-        users.put(username, password);
-        saveUsers();
+    public static String getCurrentUser() {
+        return currentUser;
     }
 
-    private static void loadUsers() {
+    private void loadUsers() {
         try (BufferedReader reader = new BufferedReader(new FileReader(USERS_FILE))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(":");
+                String[] parts = line.split(",");
                 if (parts.length == 2) {
                     users.put(parts[0], parts[1]);
                 }
@@ -76,14 +77,5 @@ public class LoginController {
         }
     }
 
-    private static void saveUsers() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(USERS_FILE))) {
-            for (Map.Entry<String, String> entry : users.entrySet()) {
-                writer.write(entry.getKey() + ":" + entry.getValue());
-                writer.newLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    // Other methods...
 }
