@@ -3,15 +3,20 @@ package org.ferutuu.partsshop;
 import Components.Component;
 import Components.CPU;
 import Components.GPU;
-import Components.MB;
 import Components.RAM;
+import Components.MB;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -22,9 +27,12 @@ import java.sql.Statement;
 public class ComponentsController {
     @FXML
     private ComboBox<String> componentTypeComboBox;
-
     @FXML
     private TableView<Component> componentsTable;
+    @FXML
+    private Button addToCartButton;
+
+    private CartController cartController = CartController.getInstance();
 
     @FXML
     public void initialize() {
@@ -152,5 +160,29 @@ public class ComponentsController {
 
         System.out.println("Components loaded: " + components.size());
         componentsTable.setItems(components);
+    }
+
+    @FXML
+    private void handleAddToCart() {
+        Component selectedComponent = componentsTable.getSelectionModel().getSelectedItem();
+        if (selectedComponent != null) {
+            cartController.addToCart(selectedComponent);
+            System.out.println("Added to cart: " + selectedComponent.getName());
+        }
+    }
+
+    @FXML
+    private void handleViewCart() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/CartScreen.fxml"));
+            Parent root = loader.load();
+            CartController cartController = loader.getController();
+            cartController.getCartItems().setAll(this.cartController.getCartItems());
+            Stage stage = (Stage) componentTypeComboBox.getScene().getWindow();
+            stage.setScene(new Scene(root, 800, 800));
+            stage.setTitle("Cart");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
