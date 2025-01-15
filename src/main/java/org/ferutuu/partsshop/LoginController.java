@@ -1,9 +1,6 @@
 package org.ferutuu.partsshop;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -32,31 +29,26 @@ public class LoginController {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
+        System.out.println("Attempting login with username: " + username);
+
         if (users.containsKey(username) && users.get(username).equals(password)) {
             currentUser = username; // Set the current logged-in user
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/ComponentsScreen.fxml"));
-                Stage stage = (Stage) usernameField.getScene().getWindow();
-                stage.setScene(new Scene(root, 800, 800));
-                stage.setTitle("Components");
-            } catch (IOException e) {
-                e.printStackTrace();
+            System.out.println("Login successful for user: " + username);
+            MainController mainController = (MainController) ((Stage) usernameField.getScene().getWindow()).getUserData();
+            if (mainController != null) {
+                mainController.loadScreen("ComponentsScreen.fxml");
+            } else {
+                System.out.println("MainController is null");
             }
         } else {
-            System.out.println("Login failed!");
+            System.out.println("Login failed for user: " + username);
         }
     }
 
     @FXML
     private void handleRegisterButtonAction() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/RegisterScreen.fxml"));
-            Stage stage = (Stage) usernameField.getScene().getWindow();
-            stage.setScene(new Scene(root, 800, 800));
-            stage.setTitle("Register");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        MainController mainController = (MainController) ((Stage) usernameField.getScene().getWindow()).getUserData();
+        mainController.loadScreen("RegisterScreen.fxml");
     }
 
     public static String getCurrentUser() {

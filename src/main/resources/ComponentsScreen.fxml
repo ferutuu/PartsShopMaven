@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Pos?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
+<?import java.lang.String?>
 
-<VBox prefHeight="800.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.ferutuu.partsshop.ComponentsController">
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ferutuu.partsshop.ComponentsController" alignment="CENTER" spacing="10.0" prefWidth="400.0" prefHeight="400.0">
     <ComboBox fx:id="componentTypeComboBox" onAction="#handleComponentTypeChange">
         <items>
             <FXCollections fx:factory="observableArrayList">

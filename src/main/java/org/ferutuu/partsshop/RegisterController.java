@@ -1,12 +1,8 @@
 package org.ferutuu.partsshop;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -41,14 +37,8 @@ public class RegisterController {
 
     @FXML
     private void handleBackToLoginButtonAction() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/LoginScreen.fxml"));
-            Stage stage = (Stage) usernameField.getScene().getWindow();
-            stage.setScene(new Scene(root, 800, 800));
-            stage.setTitle("Login");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        MainController mainController = (MainController) usernameField.getScene().getWindow().getUserData();
+        mainController.loadScreen("LoginScreen.fxml");
     }
 
     // Other methods...

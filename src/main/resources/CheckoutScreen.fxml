@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Pos?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.ferutuu.partsshop.CheckoutController">
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.ferutuu.partsshop.CheckoutController" alignment="CENTER" spacing="10.0" prefWidth="400.0" prefHeight="400.0">
     <Label text="Checkout Summary" />
     <TableView fx:id="cartTable">
         <columns>
