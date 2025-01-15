@@ -16,4 +16,5 @@
         </columns>
     </TableView>
     <Button text="Checkout" onAction="#handleCheckout"/>
+    <Button text="Back to Components" onAction="#handleBackToComponents"/>
 </VBox>

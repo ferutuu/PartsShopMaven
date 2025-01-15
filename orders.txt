@@ -1,0 +1,35 @@
+User: ferut
+Items:
+ID: 14, Name: Ryzen 7 5800X, Type: CPU, Price: $270.0
+ID: 11, Name: Ryzen 5 4500, Type: CPU, Price: $120.0
+Total Price: $390.0
+-----
+User: ferut
+Items:
+ID: 33, Name: Vengeance, Type: RAM, Price: $300.0
+Total Price: $300.0
+-----
+User: ferut
+Items:
+Total Price: $0
+-----
+User: ferut
+Items:
+Total Price: $0
+-----
+User: ferut
+Items:
+Total Price: $0
+-----
+User: ferut
+Items:
+Total Price: $0
+-----
+User: ferut
+Items:
+Total Price: $0
+-----
+User: ferut
+Items:
+Total Price: $0
+-----

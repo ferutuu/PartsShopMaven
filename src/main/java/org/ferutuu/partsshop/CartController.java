@@ -1,8 +1,5 @@
 package org.ferutuu.partsshop;
 
-import Components.Component;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +8,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import Components.Component;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.math.BigDecimal;
 
@@ -72,6 +72,19 @@ public class CartController {
             Stage stage = (Stage) cartTable.getScene().getWindow();
             stage.setScene(new Scene(root, 800, 800));
             stage.setTitle("Checkout");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void handleBackToComponents() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ComponentsScreen.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) cartTable.getScene().getWindow();
+            stage.setScene(new Scene(root, 800, 800));
+            stage.setTitle("Components");
         } catch (Exception e) {
             e.printStackTrace();
         }
