@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ferutuu.partsshop.MainController" fx:id="mainPane" prefHeight="800.0" prefWidth="800.0">
-    <!-- The initial screen will be loaded by the MainController -->
-</StackPane>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ferutuu.partsshop.MainController">
+    <center>
+        <StackPane fx:id="mainPane">
+            <fx:include source="BaseTemplate.fxml"/>
+        </StackPane>
+    </center>
+</BorderPane>

@@ -6,28 +6,34 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import java.lang.String?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ferutuu.partsshop.ComponentsController" alignment="CENTER" spacing="10.0" prefWidth="400.0" prefHeight="400.0">
-    <ComboBox fx:id="componentTypeComboBox" onAction="#handleComponentTypeChange">
-        <items>
-            <FXCollections fx:factory="observableArrayList">
-                <String fx:value="CPU" />
-                <String fx:value="GPU" />
-                <String fx:value="RAM" />
-                <String fx:value="MB" />
-            </FXCollections>
-        </items>
-    </ComboBox>
-    <TableView fx:id="componentsTable">
-        <columns>
-            <TableColumn fx:id="idColumn" text="ID" />
-            <TableColumn fx:id="nameColumn" text="Name" />
-            <TableColumn fx:id="typeColumn" text="Type" />
-            <TableColumn fx:id="priceColumn" text="Price" />
-        </columns>
-    </TableView>
-    <Button text="Add to Cart" onAction="#handleAddToCart"/>
-    <Button text="View Cart" onAction="#handleViewCart"/>
-</VBox>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ferutuu.partsshop.ComponentsController">
+    <fx:include source="BaseTemplate.fxml"/>
+    <center>
+        <VBox alignment="CENTER" spacing="10.0" prefWidth="400.0" prefHeight="400.0">
+            <ComboBox fx:id="componentTypeComboBox" onAction="#handleComponentTypeChange">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="CPU" />
+                        <String fx:value="GPU" />
+                        <String fx:value="RAM" />
+                        <String fx:value="MB" />
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <TableView fx:id="componentsTable">
+                <columns>
+                    <TableColumn fx:id="idColumn" text="ID" />
+                    <TableColumn fx:id="nameColumn" text="Name" />
+                    <TableColumn fx:id="typeColumn" text="Type" />
+                    <TableColumn fx:id="priceColumn" text="Price" />
+                </columns>
+            </TableView>
+            <Button text="Add to Cart" onAction="#handleAddToCart"/>
+            <Button text="View Cart" onAction="#handleViewCart"/>
+        </VBox>
+    </center>
+</BorderPane>

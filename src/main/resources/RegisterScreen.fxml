@@ -6,19 +6,25 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.GridPane?>
 
-<GridPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.ferutuu.partsshop.RegisterController" alignment="CENTER" prefWidth="400.0" prefHeight="400.0">
-    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
-    <hgap>10</hgap>
-    <vgap>10</vgap>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ferutuu.partsshop.RegisterController">
+    <fx:include source="BaseTemplate.fxml"/>
+    <center>
+        <GridPane alignment="CENTER" prefWidth="400.0" prefHeight="400.0">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            <hgap>10</hgap>
+            <vgap>10</vgap>
 
-    <Label text="Username:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-    <TextField fx:id="usernameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <Label text="Username:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="usernameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
-    <Label text="Password:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-    <PasswordField fx:id="passwordField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <Label text="Password:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <PasswordField fx:id="passwordField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
 
-    <Button text="Register" onAction="#handleRegisterButtonAction" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-    <Button text="Back to Login" onAction="#handleBackToLoginButtonAction" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
-</GridPane>
+            <Button text="Register" onAction="#handleRegisterButtonAction" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            <Button text="Back to Login" onAction="#handleBackToLoginButtonAction" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        </GridPane>
+    </center>
+</BorderPane>

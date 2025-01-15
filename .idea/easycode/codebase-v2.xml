@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="com.obiscr.chatgpt.settings.EasyCodeState">
+    <option name="projectFiles" value="$PROJECT_DIR$/src/main/java/Components/Component.java;C:/Users/campi/IdeaProjects/PartsShopMaven/src/main/java/Components/CPU.java;C:/Users/campi/IdeaProjects/PartsShopMaven/src/main/java/Components/GPU.java;C:/Users/campi/IdeaProjects/PartsShopMaven/src/main/java/Components/MB.java;C:/Users/campi/IdeaProjects/PartsShopMaven/src/main/java/Components/RAM.java;C:/Users/campi/IdeaProjects/PartsShopMaven/src/main/java/org/ferutuu/partsshop/App.java;C:/Users/campi/IdeaProjects/PartsShopMaven/src/main/java/org/ferutuu/partsshop/CartController.java;C:/Users/campi/IdeaProjects/PartsShopMaven/src/main/java/org/ferutuu/partsshop/CheckoutController.java;C:/Users/campi/IdeaProjects/PartsShopMaven/src/main/java/org/ferutuu/partsshop/ComponentsController.java;C:/Users/campi/IdeaProjects/PartsShopMaven/src/main/java/org/ferutuu/partsshop/LoginController.java;C:/Users/campi/IdeaProjects/PartsShopMaven/src/main/java/org/ferutuu/partsshop/MainController.java;C:/Users/campi/IdeaProjects/PartsShopMaven/src/main/java/org/ferutuu/partsshop/RegisterController.java;C:/Users/campi/IdeaProjects/PartsShopMaven/src/test/java/org/ferutuu/partsshop/AppTest.java" />
+  </component>
+</project>

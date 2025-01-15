@@ -5,18 +5,24 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.ferutuu.partsshop.CheckoutController" alignment="CENTER" spacing="10.0" prefWidth="400.0" prefHeight="400.0">
-    <Label text="Checkout Summary" />
-    <TableView fx:id="cartTable">
-        <columns>
-            <TableColumn fx:id="idColumn" text="ID" />
-            <TableColumn fx:id="nameColumn" text="Name" />
-            <TableColumn fx:id="typeColumn" text="Type" />
-            <TableColumn fx:id="priceColumn" text="Price" />
-        </columns>
-    </TableView>
-    <Label fx:id="totalPriceLabel" text="Total Price: $" />
-    <Button text="Confirm Purchase" onAction="#handleConfirmPurchase"/>
-</VBox>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.ferutuu.partsshop.CheckoutController">
+    <fx:include source="BaseTemplate.fxml"/>
+    <center>
+        <VBox alignment="CENTER" spacing="10.0" prefWidth="400.0" prefHeight="400.0">
+            <Label text="Checkout Summary" />
+            <TableView fx:id="cartTable">
+                <columns>
+                    <TableColumn fx:id="idColumn" text="ID" />
+                    <TableColumn fx:id="nameColumn" text="Name" />
+                    <TableColumn fx:id="typeColumn" text="Type" />
+                    <TableColumn fx:id="priceColumn" text="Price" />
+                </columns>
+            </TableView>
+            <Label fx:id="totalPriceLabel" text="Total Price: $" />
+            <Button text="Confirm Purchase" onAction="#handleConfirmPurchase"/>
+        </VBox>
+    </center>
+</BorderPane>
