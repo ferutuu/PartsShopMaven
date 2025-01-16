@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.collections.FXCollections?>
-<?import javafx.geometry.Pos?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import java.lang.String?>
-
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.TextArea?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.ferutuu.partsshop.ComponentsController" style="-fx-background-color: lightgrey;">
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.ferutuu.partsshop.ComponentsController" style="-fx-background-color: #f4f4f9;">
     <top>
         <HBox alignment="CENTER" style="-fx-background-color: rgb(171,28,28);" prefHeight="100.0">
-            <Label text="Parts Shop" style="-fx-text-fill: white; -fx-font-size: 40; -fx-font-weight: bold;" />
+            <Label text="Parts Shop" style="-fx-text-fill: white; -fx-font-size: 36px; -fx-font-weight: bold; -fx-padding: 20 0;" />
         </HBox>
     </top>
     <center>
         <VBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" spacing="20.0">
-            <!-- First HBox for ComboBoxes -->
-            <HBox alignment="CENTER" spacing="10.0">
-                <ComboBox fx:id="componentTypeComboBox" onAction="#handleComponentTypeChange" style="-fx-font-size: 16;">
+
+            <HBox alignment="CENTER" spacing="15.0">
+                <ComboBox fx:id="componentTypeComboBox" onAction="#handleComponentTypeChange" style="-fx-font-size: 16px; -fx-padding: 10px; -fx-max-width: 180px;">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="CPU" />
@@ -31,29 +29,26 @@
                         </FXCollections>
                     </items>
                 </ComboBox>
-                <ComboBox fx:id="componentNameComboBox" onAction="#handleComponentNameChange" style="-fx-font-size: 16;"/>
+                <ComboBox fx:id="componentNameComboBox" onAction="#handleComponentNameChange" style="-fx-font-size: 16px; -fx-padding: 10px; -fx-max-width: 250px;"/>
             </HBox>
 
-            <!-- Label for component details with some extra space -->
-            <Label fx:id="componentDetailsLabel" text="Component Details:" style="-fx-font-size: 18;" />
+            <Label fx:id="componentDetailsLabel" text="Component Details:" style="-fx-font-size: 18px; -fx-text-fill: #333333;" />
 
-            <!-- VBox to contain the component details with fixed height -->
-            <VBox alignment="CENTER" style="-fx-pref-height: 160; -fx-pref-width: 300; -fx-background-color: lightgrey; -fx-padding: 10;">
-                <!-- Centered Label for component details -->
-                <Label fx:id="componentDetails" style="-fx-font-size: 19; -fx-alignment: center;"/>
+            <VBox alignment="CENTER" style="-fx-pref-height: 200px; -fx-pref-width: 300px; -fx-background-color: #f4f4f9; -fx-padding: 15px;">
+                <Label fx:id="componentDetails" style="-fx-font-size: 19px; -fx-alignment: center; -fx-text-fill: #333333;" />
             </VBox>
 
-            <!-- Add extra spacing between the component details and buttons -->
-            <Label text=" " style="-fx-font-size: 16;"/>
+            <Label text=" " style="-fx-font-size: 16px;" />
 
-            <!-- Second HBox for Buttons (Add to Cart and View Cart) -->
-            <HBox alignment="CENTER" spacing="40.0">
-                <Button text="Add to Cart" onAction="#handleAddToCart" style="-fx-font-size: 18; -fx-padding: 10 20 10 20;" />
-                <Button text="View Cart" onAction="#handleViewCart" style="-fx-font-size: 18; -fx-padding: 10 20 10 20;" />
+            <HBox alignment="CENTER" spacing="30.0" style="-fx-padding: 20px 0;">
+                <Button text="Add to Cart" onAction="#handleAddToCart" style="-fx-font-size: 18px; -fx-padding: 10px 20px; -fx-background-color: rgb(171,28,28); -fx-text-fill: white; -fx-border-radius: 5px;"/>
+                <Button text="View Cart" onAction="#handleViewCart" style="-fx-font-size: 18px; -fx-padding: 10px 20px; -fx-background-color: rgb(171,28,28); -fx-text-fill: white; -fx-border-radius: 5px;"/>
             </HBox>
         </VBox>
     </center>
 </BorderPane>
+
+
 
 
 

@@ -1,6 +1,7 @@
 package org.ferutuu.partsshop;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -32,16 +33,20 @@ public class LoginController {
         System.out.println("Attempting login with username: " + username);
 
         if (users.containsKey(username) && users.get(username).equals(password)) {
-            currentUser = username; // Set the current logged-in user
+            currentUser = username;
             System.out.println("Login successful for user: " + username);
             MainController mainController = (MainController) ((Stage) usernameField.getScene().getWindow()).getUserData();
             if (mainController != null) {
-                mainController.loadScreen("ComponentsScreen.fxml");
+                if ("admin".equals(username) && "admin".equals(password)) {
+                    mainController.loadScreen("AdminScreen.fxml");
+                } else {
+                    mainController.loadScreen("ComponentsScreen.fxml");
+                }
             } else {
-                System.out.println("MainController is null");
+                System.out.println("MainController error.");
             }
         } else {
-            System.out.println("Login failed for user: " + username);
+            showAlert("Error", "Invalid username or password.");
         }
     }
 
@@ -66,8 +71,16 @@ public class LoginController {
             }
         } catch (IOException e) {
             e.printStackTrace();
+            showAlert("Error", "Failed to load users.");
         }
     }
 
-    // Other methods...
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
 }

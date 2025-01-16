@@ -1,8 +1,10 @@
 package org.ferutuu.partsshop;
 
 import Components.Component;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -49,10 +51,9 @@ public class CheckoutController {
 
     @FXML
     private void handleConfirmPurchase() {
-        // Implement purchase confirmation logic here
-        System.out.println("Purchase confirmed! Total Price: $" + totalPrice);
+        showAlert("Success", "Order placed successfully.");
 
-        String username = LoginController.getCurrentUser(); // Get the current logged-in user
+        String username = LoginController.getCurrentUser();
         saveOrderDetails(username, cartTable.getItems(), totalPrice);
     }
 
@@ -68,10 +69,20 @@ public class CheckoutController {
             }
             writer.write("Total Price: $" + totalPrice);
             writer.newLine();
-            writer.write("-----");
+            writer.write("-------------------");
             writer.newLine();
         } catch (IOException e) {
             e.printStackTrace();
+            showAlert("Error", "Failed to save order details.");
         }
     }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
 }

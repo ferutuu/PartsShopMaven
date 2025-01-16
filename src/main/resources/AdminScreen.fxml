@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.ferutuu.partsshop.AdminController" style="-fx-background-color: #f4f4f9;">
+    <top>
+        <HBox alignment="CENTER" style="-fx-background-color: rgb(171,28,28);" prefHeight="100.0">
+            <Label text="Parts Shop - Admin" style="-fx-text-fill: white; -fx-font-size: 36px; -fx-font-weight: bold; -fx-padding: 20 0;" />
+        </HBox>
+    </top>
+    <center>
+        <VBox alignment="CENTER" spacing="15.0" prefWidth="400.0" prefHeight="400.0">
+
+            <Label text="Add new component to database" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333333; -fx-padding: 10 0;" />
+
+            <TextField fx:id="manufacturerField" promptText="Manufacturer" style="-fx-max-width: 300px; -fx-padding: 10px; -fx-font-size: 14px;" />
+            <TextField fx:id="nameField" promptText="Name" style="-fx-max-width: 300px; -fx-padding: 10px; -fx-font-size: 14px;" />
+            <TextField fx:id="typeField" promptText="Type" style="-fx-max-width: 300px; -fx-padding: 10px; -fx-font-size: 14px;" />
+            <TextField fx:id="priceField" promptText="Price" style="-fx-max-width: 300px; -fx-padding: 10px; -fx-font-size: 14px;" />
+
+            <HBox alignment="CENTER" spacing="20.0" style="-fx-padding: 20px 0;">
+                <Button text="Add Component" onAction="#handleAddComponent" style="-fx-font-size: 18px; -fx-padding: 10px 20px; -fx-background-color: rgb(171,28,28); -fx-text-fill: white; -fx-border-radius: 5px;" />
+                <Button text="Back to Login" onAction="#handleBackToLogin" style="-fx-font-size: 18px; -fx-padding: 10px 20px; -fx-background-color: rgb(171,28,28); -fx-text-fill: white; -fx-border-radius: 5px;" />
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

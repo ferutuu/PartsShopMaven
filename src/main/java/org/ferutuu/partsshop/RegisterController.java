@@ -1,6 +1,7 @@
 package org.ferutuu.partsshop;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -26,12 +27,13 @@ public class RegisterController {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(USERS_FILE, true))) {
                 writer.write(username + "," + password);
                 writer.newLine();
-                System.out.println("User registered successfully!");
+                showAlert("Success", "User registered successfully!");
             } catch (IOException e) {
                 e.printStackTrace();
+                showAlert("Error", "An error occurred while registering user.");
             }
         } else {
-            System.out.println("Username or password cannot be empty!");
+            showAlert("Error", "All fields must be filled out.");
         }
     }
 
@@ -41,5 +43,12 @@ public class RegisterController {
         mainController.loadScreen("LoginScreen.fxml");
     }
 
-    // Other methods...
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
 }

@@ -5,15 +5,16 @@ import Components.CPU;
 import Components.GPU;
 import Components.RAM;
 import Components.MB;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 import java.math.BigDecimal;
@@ -35,7 +36,6 @@ public class ComponentsController {
 
     @FXML
     public void initialize() {
-        // Set default selection
         componentTypeComboBox.getSelectionModel().selectFirst();
         handleComponentTypeChange();
     }
@@ -44,7 +44,7 @@ public class ComponentsController {
     private void handleComponentTypeChange() {
         String selectedType = componentTypeComboBox.getValue();
         loadComponentNamesFromDatabase(selectedType);
-        componentDetails.setText(""); // Clear the component details
+        componentDetails.setText("");
     }
 
     private void loadComponentNamesFromDatabase(String type) {
@@ -95,6 +95,7 @@ public class ComponentsController {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            showAlert("Error", "Failed to load components from database.");
         }
     }
 
@@ -146,7 +147,7 @@ public class ComponentsController {
             for (Component component : components) {
                 if (component.getName().equals(selectedName)) {
                     cartController.addToCart(component);
-                    System.out.println("Added to cart: " + component.getName());
+                    showAlert("Success", "Added " + component.getName() + " to cart.");
                     break;
                 }
             }
@@ -165,6 +166,16 @@ public class ComponentsController {
             stage.setTitle("Cart");
         } catch (Exception e) {
             e.printStackTrace();
+            showAlert("Error", "Failed to load cart screen.");
         }
     }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
 }
