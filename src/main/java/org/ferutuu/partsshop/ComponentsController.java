@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 import java.math.BigDecimal;
@@ -117,11 +118,11 @@ public class ComponentsController {
         if (component instanceof CPU) {
             CPU cpu = (CPU) component;
             details.append("Cores: ").append(cpu.getCores()).append("\n");
-            details.append("Clock Speed: ").append(cpu.getClockSpeed()).append(" GHz\n");
+            details.append("Clock Speed: ").append(cpu.getClockSpeed()).append(" MHz\n");
         } else if (component instanceof GPU) {
             GPU gpu = (GPU) component;
             details.append("VRAM: ").append(gpu.getVram()).append(" GB\n");
-            details.append("Clock Speed: ").append(gpu.getClockSpeed()).append(" GHz\n");
+            details.append("Clock Speed: ").append(gpu.getClockSpeed()).append(" MHz\n");
         } else if (component instanceof RAM) {
             RAM ram = (RAM) component;
             details.append("Capacity: ").append(ram.getCapacity()).append(" GB\n");

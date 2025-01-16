@@ -11,3 +11,117 @@ ID: 17, Name: GTX 1070, Type: GPU, Price: $180.0
 ID: 7, Name: Core i9 14900KS, Type: CPU, Price: $710.0
 Total Price: $890.0
 -----
+User: ferut
+Items:
+ID: 2, Name: Core i7 12700KF, Type: CPU, Price: $380.0
+Total Price: $380.0
+-----
+User: ferut
+Items:
+ID: 28, Name: RTX 4090, Type: GPU, Price: $1800.0
+ID: 15, Name: Ryzen 7 7800X3D, Type: CPU, Price: $480.0
+Total Price: $2280.0
+-----
+User: ferut
+Items:
+ID: 28, Name: RTX 4090, Type: GPU, Price: $1800.0
+ID: 15, Name: Ryzen 7 7800X3D, Type: CPU, Price: $480.0
+Total Price: $2280.0
+-----
+User: ferut
+Items:
+ID: 2, Name: Core i7 12700KF, Type: CPU, Price: $380.0
+Total Price: $380.0
+-----
+User: ferut
+Items:
+ID: 5, Name: Core i7 13700F, Type: CPU, Price: $320.0
+Total Price: $320.0
+-----
+User: ferut
+Items:
+ID: 1, Name: Core i5 12600K, Type: CPU, Price: $290.0
+ID: 2, Name: Core i7 12700KF, Type: CPU, Price: $380.0
+ID: 2, Name: Core i7 12700KF, Type: CPU, Price: $380.0
+ID: 2, Name: Core i7 12700KF, Type: CPU, Price: $380.0
+ID: 2, Name: Core i7 12700KF, Type: CPU, Price: $380.0
+ID: 2, Name: Core i7 12700KF, Type: CPU, Price: $380.0
+Total Price: $2190.0
+-----
+User: ferut
+Items:
+ID: 23, Name: RTX 3070, Type: GPU, Price: $450.0
+ID: 10, Name: Ryzen 7 3800X, Type: CPU, Price: $190.0
+ID: 29, Name: Vengeance LPX, Type: RAM, Price: $100.0
+ID: 36, Name: B450M Steel Legend, Type: MB, Price: $100.0
+Total Price: $840.0
+-----
+User: ferut
+Items:
+ID: 3, Name: Core i9 12900KF, Type: CPU, Price: $510.0
+ID: 21, Name: RTX 2080, Type: GPU, Price: $400.0
+Total Price: $910.0
+-----
+User: ferut
+Items:
+ID: 2, Name: Core i7 12700KF, Type: CPU, Price: $380.0
+ID: 31, Name: Ripjaws V, Type: RAM, Price: $170.0
+Total Price: $550.0
+-----
+User: ferut
+Items:
+ID: 2, Name: Core i7 12700KF, Type: CPU, Price: $380.0
+Total Price: $380.0
+-----
+User: ferut
+Items:
+ID: 2, Name: Core i7 12700KF, Type: CPU, Price: $380.0
+Total Price: $380.0
+-----
+User: ferut
+Items:
+ID: 1, Name: Core i5 12600K, Type: CPU, Price: $290.0
+Total Price: $290.0
+-----
+User: ferut
+Items:
+ID: 1, Name: Intel Core i5 12600K, Type: CPU, Price: $290.0
+Total Price: $290.0
+-----
+User: ferut
+Items:
+ID: 24, Name: NVIDIA RTX 3080, Type: GPU, Price: $600.0
+ID: 4, Name: Intel Core i3 13100F, Type: CPU, Price: $130.0
+Total Price: $730.0
+-----
+User: ferut
+Items:
+ID: 15, Name: AMD Ryzen 7 7800X3D, Type: CPU, Price: $480.0
+ID: 26, Name: NVIDIA RTX 4070, Type: GPU, Price: $550.0
+ID: 33, Name: Corsair Vengeance, Type: RAM, Price: $300.0
+ID: 40, Name: ASUS X870-F STRIX GAMING WIFI, Type: MB, Price: $500.0
+Total Price: $1830.0
+-----
+User: ferut
+Items:
+ID: 40, Name: ASUS X870-F STRIX GAMING WIFI, Type: MB, Price: $500.0
+ID: 18, Name: NVIDIA GTX 1080, Type: GPU, Price: $300.0
+ID: 1, Name: Intel Core i5 12600K, Type: CPU, Price: $290.0
+ID: 29, Name: Corsair Vengeance LPX, Type: RAM, Price: $100.0
+Total Price: $1190.0
+-----
+User: ferut
+Items:
+ID: 24, Name: NVIDIA RTX 3080, Type: GPU, Price: $600.0
+Total Price: $600.0
+-----
+User: user
+Items:
+ID: 2, Name: Intel Core i7 12700KF, Type: CPU, Price: $380.0
+Total Price: $380.0
+-----
+User: ferut
+Items:
+ID: 1, Name: Intel Core i5 12600K, Type: CPU, Price: $290.0
+Total Price: $290.0
+-----

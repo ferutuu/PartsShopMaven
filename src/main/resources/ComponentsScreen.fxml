@@ -9,24 +9,54 @@
 <?import javafx.scene.layout.VBox?>
 <?import java.lang.String?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ferutuu.partsshop.ComponentsController">
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextArea?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.ferutuu.partsshop.ComponentsController" style="-fx-background-color: lightgrey;">
+    <top>
+        <HBox alignment="CENTER" style="-fx-background-color: rgb(171,28,28);" prefHeight="100.0">
+            <Label text="Parts Shop" style="-fx-text-fill: white; -fx-font-size: 40; -fx-font-weight: bold;" />
+        </HBox>
+    </top>
     <center>
-        <VBox alignment="CENTER" spacing="10.0" prefWidth="400.0" prefHeight="400.0">
-            <ComboBox fx:id="componentTypeComboBox" onAction="#handleComponentTypeChange">
-                <items>
-                    <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="CPU" />
-                        <String fx:value="GPU" />
-                        <String fx:value="RAM" />
-                        <String fx:value="MB" />
-                    </FXCollections>
-                </items>
-            </ComboBox>
-            <ComboBox fx:id="componentNameComboBox" onAction="#handleComponentNameChange"/>
-            <Label fx:id="componentDetailsLabel" text="Component Details:"/>
-            <Label fx:id="componentDetails"/>
-            <Button text="Add to Cart" onAction="#handleAddToCart"/>
-            <Button text="View Cart" onAction="#handleViewCart"/>
+        <VBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" spacing="20.0">
+            <!-- First HBox for ComboBoxes -->
+            <HBox alignment="CENTER" spacing="10.0">
+                <ComboBox fx:id="componentTypeComboBox" onAction="#handleComponentTypeChange" style="-fx-font-size: 16;">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="CPU" />
+                            <String fx:value="GPU" />
+                            <String fx:value="RAM" />
+                            <String fx:value="MB" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <ComboBox fx:id="componentNameComboBox" onAction="#handleComponentNameChange" style="-fx-font-size: 16;"/>
+            </HBox>
+
+            <!-- Label for component details with some extra space -->
+            <Label fx:id="componentDetailsLabel" text="Component Details:" style="-fx-font-size: 18;" />
+
+            <!-- VBox to contain the component details with fixed height -->
+            <VBox alignment="CENTER" style="-fx-pref-height: 160; -fx-pref-width: 300; -fx-background-color: lightgrey; -fx-padding: 10;">
+                <!-- Centered Label for component details -->
+                <Label fx:id="componentDetails" style="-fx-font-size: 19; -fx-alignment: center;"/>
+            </VBox>
+
+            <!-- Add extra spacing between the component details and buttons -->
+            <Label text=" " style="-fx-font-size: 16;"/>
+
+            <!-- Second HBox for Buttons (Add to Cart and View Cart) -->
+            <HBox alignment="CENTER" spacing="40.0">
+                <Button text="Add to Cart" onAction="#handleAddToCart" style="-fx-font-size: 18; -fx-padding: 10 20 10 20;" />
+                <Button text="View Cart" onAction="#handleViewCart" style="-fx-font-size: 18; -fx-padding: 10 20 10 20;" />
+            </HBox>
         </VBox>
     </center>
 </BorderPane>
+
+
+
+
+
+

@@ -8,20 +8,31 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.ferutuu.partsshop.CheckoutController">
+<?import javafx.scene.layout.HBox?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.ferutuu.partsshop.CheckoutController" style="-fx-background-color: lightgrey;">
+    <top>
+        <HBox alignment="CENTER" style="-fx-background-color: rgb(171,28,28);" prefHeight="100.0">
+            <Label text="Parts Shop" style="-fx-text-fill: white; -fx-font-size: 40; -fx-font-weight: bold;" />
+        </HBox>
+    </top>
     <center>
         <VBox alignment="CENTER" spacing="10.0" prefWidth="400.0" prefHeight="400.0">
-            <Label text="Checkout Summary" />
-            <TableView fx:id="cartTable">
+            <Label text="Checkout Summary" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #333333;"/>
+
+            <TableView fx:id="cartTable" style="-fx-border-color: #333333; -fx-border-width: 1;"
+                       prefHeight="300.0" prefWidth="500.0">
                 <columns>
-                    <TableColumn fx:id="idColumn" text="ID" />
-                    <TableColumn fx:id="nameColumn" text="Name" />
-                    <TableColumn fx:id="typeColumn" text="Type" />
-                    <TableColumn fx:id="priceColumn" text="Price" />
+                    <TableColumn fx:id="idColumn" text="ID" style="-fx-alignment: CENTER; -fx-font-size: 14; -fx-pref-width: 200;"/>
+                    <TableColumn fx:id="nameColumn" text="Name" style="-fx-alignment: CENTER; -fx-font-size: 14; -fx-pref-width: 200;"/>
+                    <TableColumn fx:id="typeColumn" text="Type" style="-fx-alignment: CENTER; -fx-font-size: 14; -fx-pref-width: 200;"/>
+                    <TableColumn fx:id="priceColumn" text="Price" style="-fx-alignment: CENTER; -fx-font-size: 14; -fx-pref-width: 200;"/>
                 </columns>
             </TableView>
-            <Label fx:id="totalPriceLabel" text="Total Price: $" />
-            <Button text="Confirm Purchase" onAction="#handleConfirmPurchase"/>
+
+            <Label fx:id="totalPriceLabel" text="Total Price: $" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #333333;"/>
+
+            <Button text="Confirm Purchase" onAction="#handleConfirmPurchase"
+                    style="-fx-font-size: 18; -fx-padding: 10 20 10 20;"/>
         </VBox>
     </center>
 </BorderPane>

@@ -30,8 +30,6 @@ public class CartController {
 
     private static CartController instance;
 
-    public CartController() {} // Make the constructor public
-
     public static CartController getInstance() {
         if (instance == null) {
             instance = new CartController();
