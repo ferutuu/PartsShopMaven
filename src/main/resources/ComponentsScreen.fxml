@@ -32,7 +32,7 @@
                 <ComboBox fx:id="componentNameComboBox" onAction="#handleComponentNameChange" style="-fx-background-color: #ffffff; -fx-border-color: #8b0000; -fx-border-width: 2px; -fx-font-size: 16px; -fx-font-family: 'Arial'; -fx-padding: 10px; -fx-max-width: 250px; -fx-min-width: 150px;" />
             </HBox>
 
-            <Label fx:id="componentDetailsLabel" text="Component Details:" style="-fx-font-size: 18px; -fx-text-fill: #333333;" />
+            <Label fx:id="componentDetailsLabel" text="Component Details:" style="-fx-font-size: 18px; -fx-text-fill: #333333; -fx-font-weight: bold" />
 
             <VBox alignment="CENTER" style="-fx-pref-height: 200px; -fx-pref-width: 300px; -fx-background-color: #f4f4f9; -fx-padding: 15px;">
                 <Label fx:id="componentDetails" style="-fx-font-size: 19px; -fx-alignment: center; -fx-text-fill: #333333;" />
