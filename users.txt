@@ -1,1 +1,4 @@
 admin,admin
+alex,alex
+user,user
+ferut,ferut

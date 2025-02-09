@@ -162,7 +162,8 @@ public class ComponentsController {
             CartController cartController = loader.getController();
             cartController.getCartItems().setAll(this.cartController.getCartItems());
             Stage stage = (Stage) componentTypeComboBox.getScene().getWindow();
-            stage.setScene(new Scene(root, 800, 800));
+            stage.setScene(new Scene(root));
+            stage.setMaximized(true);
             stage.setTitle("Cart");
         } catch (Exception e) {
             e.printStackTrace();

@@ -69,6 +69,7 @@ public class CartController {
             checkoutController.setTotalPrice(totalPrice);
             Stage stage = (Stage) cartTable.getScene().getWindow();
             stage.setScene(new Scene(root, 800, 800));
+            stage.setMaximized(true);
             stage.setTitle("Checkout");
 
         } catch (Exception e) {
@@ -84,6 +85,7 @@ public class CartController {
             Parent root = loader.load();
             Stage stage = (Stage) cartTable.getScene().getWindow();
             stage.setScene(new Scene(root, 800, 800));
+            stage.setMaximized(true);
             stage.setTitle("Components");
         } catch (Exception e) {
             e.printStackTrace();
