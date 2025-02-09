@@ -19,12 +19,17 @@
 
             <Label text="Checkout Summary" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333333;"/>
 
-            <TableView fx:id="cartTable" style="-fx-border-color: #333333; -fx-border-width: 1; -fx-background-color: #ffffff; -fx-border-radius: 5px;" prefHeight="300.0" prefWidth="500.0">
+            <TableView fx:id="cartTable"
+                       style="-fx-border-color: #cccccc;
+                       -fx-border-width: 1;
+                       -fx-background-color: #ffffff;
+                       -fx-border-radius: 10px;
+                       -fx-table-cell-border-color: #aaaaaa;">
                 <columns>
-                    <TableColumn fx:id="idColumn" text="ID" style="-fx-alignment: CENTER; -fx-font-size: 14px;"/>
-                    <TableColumn fx:id="nameColumn" text="Name" style="-fx-alignment: CENTER; -fx-font-size: 14px;"/>
-                    <TableColumn fx:id="typeColumn" text="Type" style="-fx-alignment: CENTER; -fx-font-size: 14px;"/>
-                    <TableColumn fx:id="priceColumn" text="Price" style="-fx-alignment: CENTER; -fx-font-size: 14px;"/>
+                    <TableColumn fx:id="idColumn" text="ID" style="-fx-alignment: CENTER; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+                    <TableColumn fx:id="nameColumn" text="Name" style="-fx-alignment: CENTER; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+                    <TableColumn fx:id="typeColumn" text="Type" style="-fx-alignment: CENTER; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+                    <TableColumn fx:id="priceColumn" text="Price" style="-fx-alignment: CENTER; -fx-font-size: 14px; -fx-font-weight: bold;"/>
                 </columns>
             </TableView>
 
