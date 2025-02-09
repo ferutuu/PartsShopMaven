@@ -79,6 +79,8 @@ public class AdminController {
     private void handleBackToLogin() {
         MainController mainController = (MainController) ((Stage) nameField.getScene().getWindow()).getUserData();
         mainController.loadScreen("LoginScreen.fxml");
+        Stage stage = (Stage) nameField.getScene().getWindow();
+        stage.setMaximized(true);
     }
 
     private void showAlert(String title, String message) {

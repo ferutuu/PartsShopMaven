@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -41,6 +42,8 @@ public class RegisterController {
     private void handleBackToLoginButtonAction() {
         MainController mainController = (MainController) usernameField.getScene().getWindow().getUserData();
         mainController.loadScreen("LoginScreen.fxml");
+        Stage stage = (Stage) usernameField.getScene().getWindow();
+        stage.setMaximized(true);
     }
 
     private void showAlert(String title, String message) {

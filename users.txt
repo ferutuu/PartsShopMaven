@@ -2,3 +2,5 @@ admin,admin
 alex,alex
 user,user
 ferut,ferut
+admin,admin
+admin,admin

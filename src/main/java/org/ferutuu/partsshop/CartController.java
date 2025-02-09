@@ -84,7 +84,7 @@ public class CartController {
             Stage stage = (Stage) cartListView.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Checkout");
-            Platform.runLater(() -> stage.setMaximized(true));
+            stage.setMaximized(true);
         } catch (Exception e) {
             e.printStackTrace();
             showAlert("Error", "Failed to load Checkout screen.");
@@ -99,7 +99,7 @@ public class CartController {
             Stage stage = (Stage) cartListView.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Components");
-            Platform.runLater(() -> stage.setMaximized(true));
+            stage.setMaximized(true);
         } catch (Exception e) {
             e.printStackTrace();
             showAlert("Error", "Failed to load Components screen.");

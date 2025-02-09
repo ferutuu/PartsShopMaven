@@ -165,7 +165,7 @@ public class ComponentsController {
             Stage stage = (Stage) componentTypeComboBox.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Cart");
-            Platform.runLater(() -> stage.setMaximized(true));
+            stage.setMaximized(true);
         } catch (Exception e) {
             e.printStackTrace();
             showAlert("Error", "Failed to load cart screen.");

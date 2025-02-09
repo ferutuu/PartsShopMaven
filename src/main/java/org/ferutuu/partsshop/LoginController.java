@@ -54,6 +54,8 @@ public class LoginController {
     private void handleRegisterButtonAction() {
         MainController mainController = (MainController) ((Stage) usernameField.getScene().getWindow()).getUserData();
         mainController.loadScreen("RegisterScreen.fxml");
+        Stage stage = (Stage) usernameField.getScene().getWindow();
+        stage.setMaximized(true);
     }
 
     public static String getCurrentUser() {
