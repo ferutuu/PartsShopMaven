@@ -8,15 +8,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Region;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
 import javafx.util.Callback;
 
 
@@ -25,11 +20,7 @@ import java.math.BigDecimal;
 public class CartController {
     @FXML
     private ListView<Component> cartListView;
-
-    // Shared cart items list (static so it's shared across instances)
     private static final ObservableList<Component> cartItems = FXCollections.observableArrayList();
-
-    // Static instance for getInstance() usage
     private static CartController instance;
 
     public static CartController getInstance() {
@@ -38,12 +29,9 @@ public class CartController {
 
     @FXML
     public void initialize() {
-        // Set this instance for getInstance() usage (if needed)
         instance = this;
-        // Set the shared cart items list
         cartListView.setItems(cartItems);
 
-        // Set a custom cell factory to display each Component using CartItem.fxml
         cartListView.setCellFactory(new Callback<ListView<Component>, ListCell<Component>>() {
             @Override
             public ListCell<Component> call(ListView<Component> listView) {
@@ -57,19 +45,14 @@ public class CartController {
                             setGraphic(null);
                         } else {
                             try {
-                                // Load the custom cell layout from CartItem.fxml
                                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/CartItem.fxml"));
                                 Parent cellRoot = loader.load();
-
-                                // Get the controller from the loaded FXML and pass the data
                                 CartItemController controller = loader.getController();
                                 controller.setData(component);
-
-                                // Use the loaded layout as the graphic for this cell
                                 setGraphic(cellRoot);
+
                             } catch (Exception e) {
                                 e.printStackTrace();
-                                // Fallback: if loading fails, show the default toString() value
                                 setText(component.toString());
                             }
                         }
@@ -79,7 +62,6 @@ public class CartController {
         });
     }
 
-    // Use this static method to add components to the cart.
     public static void addToCart(Component component) {
         cartItems.add(component);
     }
@@ -97,7 +79,6 @@ public class CartController {
             checkoutController.setTotalPrice(totalPrice);
 
             Stage stage = (Stage) cartListView.getScene().getWindow();
-            // Bind the new root's size to the stage's size if it's a Region
             if (root instanceof Region) {
                 ((Region) root).prefWidthProperty().bind(stage.widthProperty());
                 ((Region) root).prefHeightProperty().bind(stage.heightProperty());

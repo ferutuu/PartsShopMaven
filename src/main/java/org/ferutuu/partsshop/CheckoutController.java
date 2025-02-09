@@ -43,10 +43,19 @@ public class CheckoutController {
 
     @FXML
     public void initialize() {
+
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         typeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        cartTable.widthProperty().addListener((obs, oldWidth, newWidth) -> {
+            double tableWidth = newWidth.doubleValue();
+            idColumn.setPrefWidth(tableWidth * 0.1);
+            nameColumn.setPrefWidth(tableWidth * 0.4);
+            typeColumn.setPrefWidth(tableWidth * 0.2);
+            priceColumn.setPrefWidth(tableWidth * 0.3);
+        });
     }
 
     @FXML
@@ -84,5 +93,4 @@ public class CheckoutController {
         alert.setContentText(message);
         alert.showAndWait();
     }
-
 }

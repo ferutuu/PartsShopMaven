@@ -160,13 +160,10 @@ public class ComponentsController {
     private void handleViewCart() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/CartScreen.fxml"));
-            // Cast to BorderPane since we know the root is a BorderPane (a Region)
-            BorderPane root = loader.load();
 
-            // Get the stage from any node in the current scene (example: componentTypeComboBox)
+            BorderPane root = loader.load();
             Stage stage = (Stage) componentTypeComboBox.getScene().getWindow();
 
-            // Bind the root’s preferred width and height to the stage’s dimensions.
             root.prefWidthProperty().bind(stage.widthProperty());
             root.prefHeightProperty().bind(stage.heightProperty());
 
@@ -174,6 +171,7 @@ public class ComponentsController {
             stage.setScene(scene);
             stage.setTitle("Cart");
             stage.setMaximized(true);
+
         } catch (Exception e) {
             e.printStackTrace();
             showAlert("Error", "Failed to load cart screen.");
