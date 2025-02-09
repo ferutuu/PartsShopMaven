@@ -3,38 +3,7 @@ Items:
 ID: 10, Name: AMD Ryzen 7 3800X, Type: CPU, Price: $190.0
 ID: 23, Name: NVIDIA RTX 3070, Type: GPU, Price: $450.0
 ID: 29, Name: Corsair Vengeance LPX, Type: RAM, Price: $100.0
-ID: 36, Name: ASRock B450M Steel Legend, Type: MB, Price: $100.0
-Total Price: $840.0
--------------------
-User: user
-Items:
-ID: 2, Name: Intel Core i7 12700KF, Type: CPU, Price: $380.0
-ID: 27, Name: NVIDIA RTX 4080, Type: GPU, Price: $1100.0
-ID: 33, Name: Corsair Vengeance, Type: RAM, Price: $300.0
-ID: 40, Name: ASUS X870-F STRIX GAMING WIFI, Type: MB, Price: $500.0
-Total Price: $2280.0
--------------------
-
-
-
-User: alex
-Items:
-ID: 10, Name: AMD Ryzen 7 3800X, Type: CPU, Price: $190.0
-ID: 23, Name: NVIDIA RTX 3070, Type: GPU, Price: $450.0
 ID: 29, Name: Corsair Vengeance LPX, Type: RAM, Price: $100.0
 ID: 36, Name: ASRock B450M Steel Legend, Type: MB, Price: $100.0
-Total Price: $840.0
--------------------
-User: ferut
-Items:
-Total Price: $0
--------------------
-User: ferut
-Items:
-ID: 3, Name: Intel Core i9 12900KF, Type: CPU, Price: $510.0
-ID: 3, Name: Intel Core i9 12900KF, Type: CPU, Price: $510.0
-ID: 3, Name: Intel Core i9 12900KF, Type: CPU, Price: $510.0
-ID: 3, Name: Intel Core i9 12900KF, Type: CPU, Price: $510.0
-ID: 3, Name: Intel Core i9 12900KF, Type: CPU, Price: $510.0
-Total Price: $2550.0
+Total Price: $940.0
 -------------------

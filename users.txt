@@ -1,2 +1,3 @@
 admin,admin
-alex,alex
+alex,alexferut,ferut
+ferut,ferut
