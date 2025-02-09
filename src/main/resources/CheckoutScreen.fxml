@@ -15,7 +15,7 @@
         </HBox>
     </top>
     <center>
-        <VBox alignment="CENTER" spacing="15.0" prefWidth="500.0" prefHeight="400.0">
+        <VBox alignment="CENTER" spacing="40.0" prefWidth="500.0" prefHeight="400.0">
 
             <Label text="Checkout Summary" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333333;"/>
 

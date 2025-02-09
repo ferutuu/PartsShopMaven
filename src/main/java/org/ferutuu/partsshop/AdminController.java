@@ -59,7 +59,7 @@ public class AdminController {
             return;
         }
 
-        try (Connection connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\campi\\IdeaProjects\\PartsShopMaven\\parts.sqlite")) {
+        try (Connection connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Alex\\IdeaProjects\\PartsShopMaven\\parts.sqlite")) {
             String query = "INSERT INTO Components (name, type, price, manufacturer) VALUES (?, ?, ?, ?)";
             try (PreparedStatement statement = connection.prepareStatement(query)) {
                 statement.setString(1, name);

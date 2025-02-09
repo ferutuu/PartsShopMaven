@@ -69,7 +69,7 @@ public class ComponentsController {
                 break;
         }
 
-        try (Connection connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\campi\\IdeaProjects\\PartsShopMaven\\parts.sqlite");
+        try (Connection connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Alex\\IdeaProjects\\PartsShopMaven\\parts.sqlite");
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
