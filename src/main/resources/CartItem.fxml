@@ -5,9 +5,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<!-- A horizontal container that holds an image and a vertical box with details -->
 <HBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.ferutuu.partsshop.CartItemController" spacing="15" style="-fx-padding: 10; -fx-border-color: #ccc; -fx-border-width: 1; -fx-background-color: #fff;">
-    <!-- Optional image for the component -->
     <ImageView fx:id="componentImage" fitWidth="80" fitHeight="80" />
     <VBox spacing="5">
         <Label fx:id="nameLabel" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>

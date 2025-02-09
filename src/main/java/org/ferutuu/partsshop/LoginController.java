@@ -52,7 +52,7 @@ public class LoginController {
 
     @FXML
     private void handleRegisterButtonAction() {
-        MainController mainController = (MainController) ((Stage) usernameField.getScene().getWindow()).getUserData();
+        MainController mainController = (MainController) usernameField.getScene().getWindow().getUserData();
         mainController.loadScreen("RegisterScreen.fxml");
         Stage stage = (Stage) usernameField.getScene().getWindow();
         stage.setMaximized(true);
