@@ -6,6 +6,7 @@ import Components.GPU;
 import Components.RAM;
 import Components.MB;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -163,8 +164,8 @@ public class ComponentsController {
             cartController.getCartItems().setAll(this.cartController.getCartItems());
             Stage stage = (Stage) componentTypeComboBox.getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setMaximized(true);
             stage.setTitle("Cart");
+            Platform.runLater(() -> stage.setMaximized(true));
         } catch (Exception e) {
             e.printStackTrace();
             showAlert("Error", "Failed to load cart screen.");

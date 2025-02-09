@@ -1,32 +1,24 @@
 package org.ferutuu.partsshop;
 
 import Components.Component;
-
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.util.Callback;
 
 import java.math.BigDecimal;
 
 public class CartController {
     @FXML
-    private TableView<Component> cartTable;
-    @FXML
-    private TableColumn<Component, Integer> idColumn;
-    @FXML
-    private TableColumn<Component, String> nameColumn;
-    @FXML
-    private TableColumn<Component, String> typeColumn;
-    @FXML
-    private TableColumn<Component, BigDecimal> priceColumn;
+    private ListView<Component> cartListView;
 
     private ObservableList<Component> cartItems = FXCollections.observableArrayList();
 
@@ -41,12 +33,35 @@ public class CartController {
 
     @FXML
     public void initialize() {
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        typeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
-        priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+        // Set the items in the ListView
+        cartListView.setItems(cartItems);
 
-        cartTable.setItems(cartItems);
+        // Set a custom cell factory to load our CartItem.fxml for each cell.
+        cartListView.setCellFactory(new Callback<ListView<Component>, ListCell<Component>>() {
+            @Override
+            public ListCell<Component> call(ListView<Component> listView) {
+                return new ListCell<Component>() {
+                    @Override
+                    protected void updateItem(Component component, boolean empty) {
+                        super.updateItem(component, empty);
+                        if (empty || component == null) {
+                            setText(null);
+                            setGraphic(null);
+                        } else {
+                            try {
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/CartItem.fxml"));
+                                Parent cartItemRoot = loader.load();
+                                CartItemController controller = loader.getController();
+                                controller.setData(component);
+                                setGraphic(cartItemRoot);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                };
+            }
+        });
     }
 
     public void addToCart(Component component) {
@@ -60,18 +75,16 @@ public class CartController {
     @FXML
     private void handleCheckout() {
         BigDecimal totalPrice = cartItems.stream().map(Component::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add);
-
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/CheckoutScreen.fxml"));
             Parent root = loader.load();
             CheckoutController checkoutController = loader.getController();
             checkoutController.setCartItems(cartItems);
             checkoutController.setTotalPrice(totalPrice);
-            Stage stage = (Stage) cartTable.getScene().getWindow();
-            stage.setScene(new Scene(root, 800, 800));
-            stage.setMaximized(true);
+            Stage stage = (Stage) cartListView.getScene().getWindow();
+            stage.setScene(new Scene(root));
             stage.setTitle("Checkout");
-
+            Platform.runLater(() -> stage.setMaximized(true));
         } catch (Exception e) {
             e.printStackTrace();
             showAlert("Error", "Failed to load Checkout screen.");
@@ -83,10 +96,10 @@ public class CartController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ComponentsScreen.fxml"));
             Parent root = loader.load();
-            Stage stage = (Stage) cartTable.getScene().getWindow();
-            stage.setScene(new Scene(root, 800, 800));
-            stage.setMaximized(true);
+            Stage stage = (Stage) cartListView.getScene().getWindow();
+            stage.setScene(new Scene(root));
             stage.setTitle("Components");
+            Platform.runLater(() -> stage.setMaximized(true));
         } catch (Exception e) {
             e.printStackTrace();
             showAlert("Error", "Failed to load Components screen.");
@@ -100,5 +113,4 @@ public class CartController {
         alert.setContentText(message);
         alert.showAndWait();
     }
-
 }

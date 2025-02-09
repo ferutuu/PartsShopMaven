@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.ferutuu.partsshop.CartController" style="-fx-background-color: #f4f4f9;">
     <top>
@@ -16,14 +15,8 @@
     </top>
     <center>
         <VBox alignment="CENTER" spacing="15.0">
-            <TableView fx:id="cartTable" style="-fx-border-color: #333333; -fx-border-width: 1; -fx-background-color: #ffffff; -fx-border-radius: 5px;" VBox.vgrow="ALWAYS">
-                <columns>
-                    <TableColumn fx:id="idColumn" text="ID" style="-fx-alignment: CENTER; -fx-font-size: 14px;"/>
-                    <TableColumn fx:id="nameColumn" text="Name" style="-fx-alignment: CENTER; -fx-font-size: 14px;"/>
-                    <TableColumn fx:id="typeColumn" text="Type" style="-fx-alignment: CENTER; -fx-font-size: 14px;"/>
-                    <TableColumn fx:id="priceColumn" text="Price" style="-fx-alignment: CENTER; -fx-font-size: 14px;"/>
-                </columns>
-            </TableView>
+            <!-- Replace the TableView with a ListView -->
+            <ListView fx:id="cartListView" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent;" />
 
             <Label text=" " style="-fx-font-size: 16px;" />
 
@@ -34,7 +27,3 @@
         </VBox>
     </center>
 </BorderPane>
-
-
-
-
