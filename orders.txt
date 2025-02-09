@@ -29,3 +29,12 @@ User: ferut
 Items:
 Total Price: $0
 -------------------
+User: ferut
+Items:
+ID: 3, Name: Intel Core i9 12900KF, Type: CPU, Price: $510.0
+ID: 3, Name: Intel Core i9 12900KF, Type: CPU, Price: $510.0
+ID: 3, Name: Intel Core i9 12900KF, Type: CPU, Price: $510.0
+ID: 3, Name: Intel Core i9 12900KF, Type: CPU, Price: $510.0
+ID: 3, Name: Intel Core i9 12900KF, Type: CPU, Price: $510.0
+Total Price: $2550.0
+-------------------

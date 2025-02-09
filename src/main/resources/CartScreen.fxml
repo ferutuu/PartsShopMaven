@@ -16,12 +16,14 @@
     <center>
         <VBox alignment="CENTER" spacing="15.0">
             <!-- Replace the TableView with a ListView -->
-            <ListView fx:id="cartListView" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent;" />
+            <ListView fx:id="cartListView" prefHeight="700" style="-fx-background-color: transparent;" />
+
 
             <Label text=" " style="-fx-font-size: 16px;" />
 
-            <HBox alignment="CENTER" spacing="30.0" style="-fx-padding: 20px 0;">
-                <Button text="Checkout" onAction="#handleCheckout" style="-fx-font-size: 18px; -fx-padding: 10px 20px; -fx-background-color: rgb(171,28,28); -fx-text-fill: white; -fx-border-radius: 5px;"/>
+            <HBox alignment="CENTER" spacing="30.0" style="-fx-padding: 20px 0;" VBox.vgrow="NEVER">
+
+            <Button text="Checkout" onAction="#handleCheckout" style="-fx-font-size: 18px; -fx-padding: 10px 20px; -fx-background-color: rgb(171,28,28); -fx-text-fill: white; -fx-border-radius: 5px;"/>
                 <Button text="Back to Components" onAction="#handleBackToComponents" style="-fx-font-size: 18px; -fx-padding: 10px 20px; -fx-background-color: rgb(171,28,28); -fx-text-fill: white; -fx-border-radius: 5px;"/>
             </HBox>
         </VBox>

@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.math.BigDecimal;
@@ -159,11 +160,18 @@ public class ComponentsController {
     private void handleViewCart() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/CartScreen.fxml"));
-            Parent root = loader.load();
-            CartController cartController = loader.getController();
-            cartController.getCartItems().setAll(this.cartController.getCartItems());
+            // Cast to BorderPane since we know the root is a BorderPane (a Region)
+            BorderPane root = loader.load();
+
+            // Get the stage from any node in the current scene (example: componentTypeComboBox)
             Stage stage = (Stage) componentTypeComboBox.getScene().getWindow();
-            stage.setScene(new Scene(root));
+
+            // Bind the root’s preferred width and height to the stage’s dimensions.
+            root.prefWidthProperty().bind(stage.widthProperty());
+            root.prefHeightProperty().bind(stage.heightProperty());
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
             stage.setTitle("Cart");
             stage.setMaximized(true);
         } catch (Exception e) {
@@ -171,6 +179,8 @@ public class ComponentsController {
             showAlert("Error", "Failed to load cart screen.");
         }
     }
+
+
 
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
