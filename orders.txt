@@ -1,5 +1,32 @@
 User: alex
 Items:
+ID: 15, Name: AMD Ryzen 7 7800X3D, Type: CPU, Price: $480.0
+ID: 26, Name: NVIDIA RTX 4070, Type: GPU, Price: $550.0
+Total Price: $1030.0
+-------------------
+User: alex
+Items:
+ID: 9, Name: AMD Ryzen 5 3500X, Type: CPU, Price: $160.0
+Total Price: $160.0
+-------------------
+User: alex
+Items:
+ID: 37, Name: MSI B550 TOMAHAWK, Type: MB, Price: $170.0
+ID: 6, Name: Intel Core i5 14400, Type: CPU, Price: $280.0
+Total Price: $450.0
+-------------------
+User: alex
+Items:
+ID: 3, Name: Intel Core i9 12900KF, Type: CPU, Price: $510.0
+Total Price: $510.0
+-------------------
+User: alex
+Items:
+ID: 12, Name: AMD Ryzen 5 5600, Type: CPU, Price: $170.0
+Total Price: $170.0
+-------------------
+User: alex
+Items:
 ID: 10, Name: AMD Ryzen 7 3800X, Type: CPU, Price: $190.0
 ID: 23, Name: NVIDIA RTX 3070, Type: GPU, Price: $450.0
 ID: 29, Name: Corsair Vengeance LPX, Type: RAM, Price: $100.0

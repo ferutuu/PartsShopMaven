@@ -14,7 +14,7 @@ public class App extends Application {
         MainController mainController = loader.getController();
         primaryStage.setUserData(mainController);
         primaryStage.setTitle("Parts Shop");
-        primaryStage.setScene(new Scene(root, 800, 800));
+        primaryStage.setScene(new Scene(root, 800, 700));
         primaryStage.setMaximized(true);
         primaryStage.show();
     }

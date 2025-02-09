@@ -1,19 +1,18 @@
 package org.ferutuu.partsshop;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
 
-/**
- * Unit test for simple App.
- */
 public class AppTest {
 
-    /**
-     * Rigorous Test :-)
-     */
-    @Test
-    public void shouldAnswerWithTrue() {
-        assertTrue(true);
+    private App app;
+
+    public void start(Stage stage) throws Exception {
+        app = new App();
+        app.start(stage);
     }
+
+
 }
